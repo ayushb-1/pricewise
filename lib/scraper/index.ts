@@ -23,6 +23,8 @@ export async function scrapeAmazonProduct(url:string) {
         host: 'brd.superproxy.io',
         port,
         rejectUnauthorized: false,
+        timeout: 10000, // Increase timeout to 10 seconds
+
     }
 
     try {
