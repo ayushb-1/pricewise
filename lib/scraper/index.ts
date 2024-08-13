@@ -80,6 +80,6 @@ export async function scrapeAmazonProduct(url: string) {
 
     return data;
   } catch (error: any) {
-    console.log(error);
+    console.log("amazon scraping error: ",error);
   }
 }
