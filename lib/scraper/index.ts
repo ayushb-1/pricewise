@@ -10,15 +10,18 @@ export async function scrapeAmazonProduct(url: string) {
   // BrightData proxy configuration
   const username = String(process.env.BRIGHT_DATA_USERNAME);
   const password = String(process.env.BRIGHT_DATA_PASSWORD);
-  const port = 22225;
+  // const port = 22225;
+  const port = 8001;
   const session_id = (1000000 * Math.random()) | 0;
 
   const options = {
     auth: {
-      username: `${username}-session-${session_id}`,
-      password,
+      // username: `${username}-session-${session_id}`,
+      username: 'scraperapi',
+      // password,
+      password: '86f8dec67ac450406a73fc99ff088207'  
     },
-    host: 'brd.superproxy.io',
+    host: 'proxy-server.scraperapi.com',
     port,
     rejectUnauthorized: false,
   }
@@ -27,7 +30,7 @@ export async function scrapeAmazonProduct(url: string) {
     // Fetch the product page
     const response = await axios.get(url, options);
     const $ = cheerio.load(response.data);
-
+    console.log("$", $);
     // Extract the product title
     const title = $('#productTitle').text().trim();
     const currentPrice = extractPrice(
