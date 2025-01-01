@@ -15,7 +15,7 @@ export async function GET() {
         connectToDB();
 
         const product = await Product.find({});
-
+        console.log(product)
         if(!product)  throw new Error("No product find");
 
         // 1. Scrape Latest product details and update db 
