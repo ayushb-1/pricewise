@@ -19,7 +19,7 @@ export async function scrapeAmazonProduct(url: string) {
       // username: `${username}-session-${session_id}`,
       username: 'scraperapi',
       // password,
-      password: '86f8dec67ac450406a73fc99ff088207'  
+      password: 'acef0fcc98c32045a22ac66f3ca9a0ad'  
     },
     host: 'proxy-server.scraperapi.com',
     port,
