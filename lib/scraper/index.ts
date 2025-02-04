@@ -8,8 +8,11 @@ export async function scrapeAmazonProduct(url: string) {
   if(!url) return;
 
   // BrightData proxy configuration
-  const username = String(process.env.BRIGHT_DATA_USERNAME);
-  const password = String(process.env.BRIGHT_DATA_PASSWORD);
+  // const username = String(process.env.BRIGHT_DATA_USERNAME);
+  // const password = String(process.env.BRIGHT_DATA_PASSWORD);
+
+  //ScraperApi proxy configuration
+  const password = String(process.env.SCRAPER_API_PASSWORD);
   // const port = 22225;
   const port = 8001;
   const session_id = (1000000 * Math.random()) | 0;
@@ -19,7 +22,7 @@ export async function scrapeAmazonProduct(url: string) {
       // username: `${username}-session-${session_id}`,
       username: 'scraperapi',
       // password,
-      password: 'acef0fcc98c32045a22ac66f3ca9a0ad'  
+      password: password,  
     },
     host: 'proxy-server.scraperapi.com',
     port,
